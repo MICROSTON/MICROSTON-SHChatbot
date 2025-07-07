@@ -16,11 +16,11 @@ CREATE TABLE BenefitCategory (
     BenefitCategory_name VARCHAR(50)
 );
 INSERT INTO BenefitCategory (BenefitCategory_num, BenefitCategory_name) VALUES
-(1, '경제'),
-(2, '의료'),
-(3, '문화시설'),
-(4, '교육'),
-(5, '기타');
+(10, '경제'),
+(20, '의료'),
+(30, '문화시설'),
+(40, '교육'),
+(50, '기타');
 
 CREATE TABLE Localinfo (
     Local_num INT PRIMARY KEY,
@@ -56,32 +56,6 @@ CREATE TABLE Benefit (
     FOREIGN KEY (Local_num) REFERENCES Localinfo(Local_num),
 	FOREIGN KEY (BenefitCategory_num) REFERENCES BenefitCategory(BenefitCategory_num)
 );
-INSERT INTO Benefit (Benefit_Code, Benefit_name, Benefit_start_date, Benefit_end_date, 
-Benefit_content, Benefit_url, Benefit_condition, AgeGroup_num, Local_num, BenefitCategory_num) VALUES
-(1, '임신 사전검사비지원', 'NULL', 'NULL', 
-'20~49세 남녀 중 가임력 검사 희망자에게 임신 및 출산에 장애가 될 수 있는 건강위험요인의 조기 발견 기회를 제공, 
-임신 전 건강관리를 통해 건강한 임신출산 환경을 조성하기 위한 사업입니다.
-
-지원항목
-필수 검사항목
-‣ (여성) 난소기능검사(AMH), 부인과 초음파
-‣ (남성) 정액검사(정자정밀형태검사)
-※ 가임력 확인에 필요한 기타 검사를 지원금 한도 내 지원
-
-지원금액 : (여성) 최대 13만원, (남성) 최대 5만원', 
-
-'https://www.gg.go.kr/contents/contents.do?ciIdx=987167&menuId=266154', 
-
-'모든 20~49세 남녀 중 검사희망자(결혼, 자녀여부 무관)
-※ 15~19세 남녀 중 부부(예비부부, 사실혼 포함)
-※ 내국인 배우자가 있는 외국인 지원 가능(별도 비자 조건 없음)
-※ 주민등록지(주민등록을 한 재외국민, 외국인등록 포함)를 기준으로 관할 보건소에서 지원 가능
-지원횟수 : 주요 주기별 1회, 생애 최대 3회 지원
-※ 29세 이하(제1주기), 30~34세(제2주기), 35~49세(제3주기)
-',
-'1', '100', '1');
-
-
 
 CREATE TABLE BookMark (
     User_id VARCHAR(15),
