@@ -1,8 +1,8 @@
-CREATE TABLE AgeGroup (
-    AgeGroup_num INT PRIMARY KEY,
-    AgeGroup_name VARCHAR(50)
+CREATE TABLE age_group (
+    age_group_num INT PRIMARY KEY,
+    age_group_name VARCHAR(50)
 );
-INSERT INTO AgeGroup (AgeGroup_num, AgeGroup_name) VALUES
+INSERT INTO age_group (age_group_num, age_group_name) VALUES
 (1, '임산부-여자'),
 (2, '영유아'),
 (3, '청소년'),
@@ -11,11 +11,11 @@ INSERT INTO AgeGroup (AgeGroup_num, AgeGroup_name) VALUES
 (6, '어르신'),
 (7, '장애인');
 
-CREATE TABLE BenefitCategory (
-    BenefitCategory_num INT PRIMARY KEY,
-    BenefitCategory_name VARCHAR(50)
+CREATE TABLE benefit_category (
+    benefit_category_num INT PRIMARY KEY,
+    benefit_category_name VARCHAR(50)
 );
-INSERT INTO BenefitCategory (BenefitCategory_num, BenefitCategory_name) VALUES
+INSERT INTO benefit_category (benefit_category_num, benefit_category_name) VALUES
 (10, '경제'),
 (20, '의료'),
 (30, '문화시설'),
@@ -31,7 +31,8 @@ INSERT INTO Localinfo (Local_num, Local_name) VALUES
 (101, '의정부');
 
 CREATE TABLE Userinfo (
-    User_id VARCHAR(15) PRIMARY KEY,
+    User_num INT PRIMARY KEY,
+    User_id VARCHAR(15),
     Password VARCHAR(15),
     Name VARCHAR(20),
     Phone VARCHAR(11),
