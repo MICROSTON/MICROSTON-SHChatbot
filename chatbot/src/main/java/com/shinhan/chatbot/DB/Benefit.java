@@ -1,4 +1,4 @@
-package com.shinhan.chatbot.DAO;
+package com.shinhan.chatbot.DB;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

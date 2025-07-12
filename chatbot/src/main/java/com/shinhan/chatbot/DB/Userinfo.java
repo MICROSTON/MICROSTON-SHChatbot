@@ -1,4 +1,4 @@
-package com.shinhan.chatbot.DAO;
+package com.shinhan.chatbot.DB;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -14,10 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Userinfo {
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "User_num")
-    private int userNum;
-
+    @Id
     @Column(name = "User_id")
     private String id;
 

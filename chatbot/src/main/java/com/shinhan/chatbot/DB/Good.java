@@ -1,4 +1,4 @@
-package com.shinhan.chatbot.DAO;
+package com.shinhan.chatbot.DB;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,11 +11,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "BookMark")
-public class BookMark {
+@Table(name = "Good")
+public class Good {
 
     @EmbeddedId
-    private BookMarkId id;
+    private GoodId id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("userId")
@@ -23,8 +23,7 @@ public class BookMark {
     private Userinfo userinfo;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("ageGroupNum")
-    @JoinColumn(name = "age_group_num", referencedColumnName = "age_group_num")
-    private AgeGroup ageGroup;
+    @MapsId("benefitCode")
+    @JoinColumn(name = "benefit_code", referencedColumnName = "benefit_code")
+    private Benefit benefit;
 }
-
