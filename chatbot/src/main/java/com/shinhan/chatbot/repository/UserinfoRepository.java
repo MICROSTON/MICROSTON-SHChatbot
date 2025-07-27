@@ -7,9 +7,14 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.Optional;
 
-public interface UserinfoRepository extends JpaRepository<Userinfo, String> {
+import jakarta.persistence.LockModeType;
+import org.springframework.data.jpa.repository.Lock;
 
-    Optional<Userinfo> findById(String id);
+public interface UserinfoRepository extends JpaRepository<Userinfo, Long> {
+
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
+    @Query("SELECT u FROM Userinfo u WHERE u.id = :userId")
+    Optional<Userinfo> findByUserId(@Param("userId") String userId);
 
 
     @Query("SELECT u.id FROM Userinfo u WHERE u.name = :name AND u.phone = :phone")

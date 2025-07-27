@@ -38,11 +38,11 @@ public class Benefit {
     private  String benefitCondition;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "age_group_num", referencedColumnName = "age_group_num", nullable = false)
+    @JoinColumn(name = "age_group_num", referencedColumnName = "age_group_num")
     private  AgeGroup ageGroup;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "local_num", referencedColumnName = "local_num", nullable = false)
+    @JoinColumn(name = "local_num", referencedColumnName = "local_num")
     private Localinfo localinfo;
 
     @ManyToOne(fetch = FetchType.LAZY)

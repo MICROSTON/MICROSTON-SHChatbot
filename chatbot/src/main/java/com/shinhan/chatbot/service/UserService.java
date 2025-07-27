@@ -1,25 +1,31 @@
 package com.shinhan.chatbot.service;
 
 import com.shinhan.chatbot.DB.Userinfo;
-import com.shinhan.chatbot.dto.PasswordFindRequestDto;
-import com.shinhan.chatbot.dto.SignupRequest;
-import com.shinhan.chatbot.dto.UpdateUserDTO;
-import com.shinhan.chatbot.dto.UserFindRequestDto;
+import com.shinhan.chatbot.config.JwtTokenProvider;
+import com.shinhan.chatbot.dto.*;
 import com.shinhan.chatbot.repository.UserinfoRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class UserService implements UserDetailsService {
 
     private final UserinfoRepository userRepository;
+    private final AuthenticationManagerBuilder authenticationManagerBuilder;
+    private final JwtTokenProvider jwtTokenProvider;
 
+    @Transactional
     public void registerUser(SignupRequest request) {
-        if (userRepository.findById(request.getId()).isPresent()) {
+        if (userRepository.findByUserId(request.getId()).isPresent()) {
             throw new IllegalArgumentException("이미 존재하는 아이디입니다.");
         }
 
@@ -36,26 +42,42 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public Userinfo loginUser(String id, String pw) {
-        Optional<Userinfo> userOpt = userRepository.findById(id);
+    @Transactional
+    public TokenDto loginUser(String id, String pw) {
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(id, pw);
+        Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
+        TokenDto tokenDto = jwtTokenProvider.generateToken(authentication);
 
-        if (userOpt.isEmpty()) {
-            throw new IllegalArgumentException("존재하지 않는 아이디입니다.");
-        }
+        Userinfo user = userRepository.findByUserId(id).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 아이디입니다."));
+        user.setRefreshToken(tokenDto.getRefreshToken());
+        userRepository.save(user);
 
-        Userinfo user = userOpt.get();
-
-        if (!user.getPw().equals(pw)) {
-            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
-        }
-
-        return user;
+        return tokenDto;
     }
 
     @Transactional
-    public void updateUser(String userId, UpdateUserDTO updateUserDTO) {
-        Userinfo user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + userId));
+    public TokenDto reissue(String refreshToken) {
+        jwtTokenProvider.validateToken(refreshToken);
+
+        Authentication authentication = jwtTokenProvider.getAuthentication(refreshToken);
+
+        Userinfo user = userRepository.findByUserId(authentication.getName()).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 아이디입니다."));
+
+        if (!user.getRefreshToken().equals(refreshToken)) {
+            throw new IllegalArgumentException("토큰의 유저 정보가 일치하지 않습니다.");
+        }
+
+        TokenDto tokenDto = jwtTokenProvider.generateToken(authentication);
+        user.setRefreshToken(tokenDto.getRefreshToken());
+        userRepository.save(user);
+
+        return tokenDto;
+    }
+
+    @Transactional
+    public void updateUser(Long userNum, UpdateUserDTO updateUserDTO) {
+        Userinfo user = userRepository.findById(userNum)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with user_num: " + userNum));
 
         // Update user fields based on DTO
         if (updateUserDTO.getPassword() != null) {
@@ -67,10 +89,10 @@ public class UserService {
         if (updateUserDTO.getPhone() != null) {
             user.setPhone(updateUserDTO.getPhone());
         }
-        if (updateUserDTO.getHomeMember() != 0) {
+        if (updateUserDTO.getHomeMember() != null) {
             user.setHomeMember(updateUserDTO.getHomeMember());
         }
-        if (updateUserDTO.getIncome() != 0) {
+        if (updateUserDTO.getIncome() != null) {
             user.setIncome(updateUserDTO.getIncome());
         }
         if (updateUserDTO.getAddress() != null) {
@@ -81,9 +103,9 @@ public class UserService {
     }
 
     @Transactional
-    public void deleteUser(String userId) {
-        Userinfo user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + userId));
+    public void deleteUser(Long userNum) {
+        Userinfo user = userRepository.findById(userNum)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with user_num: " + userNum));
         userRepository.delete(user);
     }
 
@@ -100,5 +122,20 @@ public class UserService {
                 requestDto.getName(),
                 requestDto.getPhone()
         ).orElse("일치하는 정보가 없습니다.");
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findByUserId(username)
+                .map(this::createUserDetails)
+                .orElseThrow(() -> new UsernameNotFoundException("해당하는 유저를 찾을 수 없습니다."));
+    }
+
+    private UserDetails createUserDetails(Userinfo user) {
+        return User.builder()
+                .username(user.getId())
+                .password(user.getPw())
+                .roles("USER")
+                .build();
     }
 }

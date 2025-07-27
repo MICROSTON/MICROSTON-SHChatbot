@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Localinfo {
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     @Column(name = "local_num")
     private  int localNum;
 

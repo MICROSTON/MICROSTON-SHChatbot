@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AgeGroup {
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     @Column(name = "age_group_num")
     private  int ageGroupNum;
 

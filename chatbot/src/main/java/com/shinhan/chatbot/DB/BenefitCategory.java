@@ -13,7 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Table(name = "BenefitCategory")
 public class BenefitCategory {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     @Column(name = "benefit_category_num")
     private Long num;
 

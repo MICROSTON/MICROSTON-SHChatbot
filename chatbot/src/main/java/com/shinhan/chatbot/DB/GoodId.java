@@ -12,6 +12,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GoodId implements Serializable {
-    private String userId;
-    private Integer benefitCode;
+    private Long userNum;
+    private Long benefitCode;
 }

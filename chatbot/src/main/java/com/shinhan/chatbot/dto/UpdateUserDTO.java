@@ -10,7 +10,7 @@ public class UpdateUserDTO {
     private String name;
     private String phone;
     private Date birth;
-    private int homeMember;
-    private int income;
+    private Integer homeMember;
+    private Integer income;
     private String address;
 }

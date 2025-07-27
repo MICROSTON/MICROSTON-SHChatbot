@@ -18,8 +18,8 @@ public class BookMark {
     private BookMarkId id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("userId")
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    @MapsId("userNum")
+    @JoinColumn(name = "user_num", referencedColumnName = "User_num")
     private Userinfo userinfo;
 
     @ManyToOne(fetch = FetchType.LAZY)

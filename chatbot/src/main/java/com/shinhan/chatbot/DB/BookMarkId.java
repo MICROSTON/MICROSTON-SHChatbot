@@ -12,6 +12,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookMarkId implements Serializable {
-    private String userId;
+    private Long userNum;
     private Integer ageGroupNum;
 }

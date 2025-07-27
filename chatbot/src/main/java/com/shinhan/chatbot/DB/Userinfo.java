@@ -15,7 +15,11 @@ import java.util.Date;
 @AllArgsConstructor
 public class Userinfo {
     @Id
-    @Column(name = "User_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_num")
+    private Long user_num;
+
+    @Column(name = "User_id", unique = true)
     private String id;
 
     @Column(name = "Password")
@@ -38,4 +42,7 @@ public class Userinfo {
 
     @Column(name = "Address")
     private  String address;
+
+    @Column(name = "RefreshToken")
+    private  String refreshToken;
 }
