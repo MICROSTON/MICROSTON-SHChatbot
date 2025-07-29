@@ -32,7 +32,7 @@ public class LikeService {
                 .collect(Collectors.toList());
     }
 
-    // 좋아요 추가 (최대 3개 제한)
+    // 좋아요 추가
     @Transactional
     public String addLike(LikeRequestDTO requestDto) {
         Userinfo user = userinfoRepository.findByUserId(requestDto.getUserId()).orElse(null);
@@ -42,8 +42,6 @@ public class LikeService {
         boolean alreadyExists = existing.stream()
                 .anyMatch(g -> g.getBenefit().getBenefitCode().equals(requestDto.getBenefitCode()));
         if (alreadyExists) return "이미 좋아요가 등록되었습니다.";
-
-        if (existing.size() >= 3) return "좋아요는 최대 3개까지만 등록할 수 있습니다.";
 
         // 복합키 생성
         GoodId id = new GoodId(user.getUser_num(), requestDto.getBenefitCode());

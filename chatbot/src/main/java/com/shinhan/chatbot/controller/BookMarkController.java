@@ -11,21 +11,23 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/shinhan")
+@RequestMapping("/welfare")
 public class BookMarkController {
 
     private final BookMarkService bookMarkService;
-
-    @GetMapping("/favorites/{userId}")
+    //북마크 조회
+    @GetMapping("/bookmarks/{userId}")
     public List<FavoriteResponseDto> getFavorites(@PathVariable String userId) {
         return bookMarkService.getFavorites(userId);
     }
-    @PostMapping("/add-favorites")
+    //북마크 추가
+    @PostMapping("/bookmarks/add")
     public String addFavorite(@RequestBody FavoriteRequestDto requestDto) {
         return bookMarkService.addFavorite(requestDto);
     }
 
-    @DeleteMapping("/delete-favorites")
+    //북마크 제거
+    @DeleteMapping("/bookmarks/remove")
     public String deleteFavorite(@RequestBody FavoriteRequestDto requestDto) {
         return bookMarkService.deleteFavorite(requestDto);
     }

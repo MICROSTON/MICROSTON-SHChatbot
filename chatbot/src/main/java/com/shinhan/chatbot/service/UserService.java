@@ -23,9 +23,14 @@ public class UserService implements UserDetailsService {
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final JwtTokenProvider jwtTokenProvider;
 
+    @Transactional(readOnly = true)
+    public boolean checkIdAvailability(String id) {
+        return userRepository.findByUserId(id).isPresent();
+    }
+
     @Transactional
     public void registerUser(SignupRequest request) {
-        if (userRepository.findByUserId(request.getId()).isPresent()) {
+        if (checkIdAvailability(request.getId())) {
             throw new IllegalArgumentException("이미 존재하는 아이디입니다.");
         }
 
@@ -83,9 +88,6 @@ public class UserService implements UserDetailsService {
         if (updateUserDTO.getPassword() != null) {
             user.setPw(updateUserDTO.getPassword());
         }
-        if (updateUserDTO.getName() != null) {
-            user.setName(updateUserDTO.getName());
-        }
         if (updateUserDTO.getPhone() != null) {
             user.setPhone(updateUserDTO.getPhone());
         }
@@ -107,6 +109,13 @@ public class UserService implements UserDetailsService {
         Userinfo user = userRepository.findById(userNum)
                 .orElseThrow(() -> new IllegalArgumentException("User not found with user_num: " + userNum));
         userRepository.delete(user);
+    }
+
+    @Transactional(readOnly = true)
+    public UserProfileResponseDto getUserProfile(Long userNum) {
+        Userinfo user = userRepository.findById(userNum)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with user_num: " + userNum));
+        return UserProfileResponseDto.from(user);
     }
 
     public String findUserId(UserFindRequestDto requestDto) {
