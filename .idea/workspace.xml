@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5839b9de-75fe-4798-9289-fa6d4a01af06" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/chatbot/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/DB/Benefit.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/DB/Benefit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/DB/Userinfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/DB/Userinfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/DataInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/controller/BookMarkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/controller/BookMarkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/controller/LikesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/controller/LikesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/controller/bokji/BenefitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/controller/bokji/BenefitController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/FavoriteRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/FavoriteRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/LikeRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/LikeRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/LikeResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/LikeResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/LoginResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/LoginResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/PasswordFindRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/PasswordFindRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/SignupRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/SignupRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/UpdateUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/UpdateUserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/UserProfileResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/dto/UserProfileResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/repository/BenefitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/repository/BenefitRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/repository/UserinfoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/repository/UserinfoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/service/BenefitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/service/BenefitService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/service/BookMarkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/service/BookMarkService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/service/LikeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/service/LikeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/java/com/shinhan/chatbot/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot/src/main/resources/static/sql/ChatbotTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/main/resources/static/sql/ChatbotTable.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="310REcTGPQTxdlLrFdgqqZYIqUR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/Desktop/chatbot1/ChatBot_BackEnd&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;프로젝트&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="5839b9de-75fe-4798-9289-fa6d4a01af06" name="변경" comment="" />
+      <created>1754658893004</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1754658893004</updated>
+      <workItem from="1754658894528" duration="351000" />
+      <workItem from="1754659254476" duration="5000" />
+      <workItem from="1754737774301" duration="45000" />
+      <workItem from="1754913508085" duration="9000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
